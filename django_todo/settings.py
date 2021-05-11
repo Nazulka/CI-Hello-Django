@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@*g!6+&5+#5-xvxd2$l#wmf+j@uj4vs0h*9u&fsez!gt@exv#a'
+SECRET_KEY = 'django-insecure-6d_d=5&t)&)e6849y#(4ea4&_qj#tbbvzygs3)ggx$2xr6-ri('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -74,11 +74,15 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://iovspwgrjeqqbs:994439482f85aae59f6e2bf09532ba9ee242ca1a3db928f32c07aa8db9b95c8c@ec2-34-202-54-225.compute-1.amazonaws.com:5432/ddn8vve9l466rd')
 }
 
 
